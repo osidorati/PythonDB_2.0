@@ -1,6 +1,5 @@
 import datetime
 
-from PyQt5.QtGui import QRegExpValidator
 from PyQt5.QtSql import QSqlTableModel, QSqlDatabase, QSqlQuery
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *

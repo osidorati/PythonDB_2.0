@@ -55,17 +55,17 @@ class NineWidget(QWidget):
         font = QFont()
         font.setPointSize(12)
         self.label1.setFont(font)
-        self.label_count = QLabel("Количество записей: ")
-        query = QSqlQuery()
-        query.prepare("""select count(*) from abonents""")
-        query.exec_()
-        while query.next():
-            count = query.value(0)
-        self.label_count.setText("Количество записей: " + str(count))
+        # self.label_count = QLabel("Количество записей: ")
+        # query = QSqlQuery()
+        # query.prepare("""select count(*) from abonents""")
+        # query.exec_()
+        # while query.next():
+        #     count = query.value(0)
+        # self.label_count.setText("Количество записей: " + str(count))
 
-        self.label_count.setFont(font)
+        #self.label_count.setFont(font)
         self.gridlayout.addWidget(self.label1, 0, 2, 1, 8)
-        self.gridlayout.addWidget(self.label_count, 2, 0)
+        # self.gridlayout.addWidget(self.label_count, 2, 0)
         self.gridlayout.addWidget(self.view, 3, 0, 1, 8)
 
         self.layout.setGeometry(QRect(441, 212, 173, 154))

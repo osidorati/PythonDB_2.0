@@ -11,8 +11,6 @@ CREATE TABLE "atc" (
   OIDS=FALSE
 );
 
-
-
 CREATE TABLE "abonents" (
 	"id" serial NOT NULL,
 	"id_atc" int NOT NULL,

@@ -3,11 +3,6 @@ from PyQt5.QtSql import QSqlQuery, QSqlQueryModel
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 
-from tables.atc.atcChangeDialog import ChangeDialog
-from tables.atc.atcInsertDialog import RefactorDialog
-from tables.atc.atcLookDialog import LookDialog
-from generaton import Generation
-
 
 class FifeWidget(QWidget):
     customerAddedSignal = pyqtSignal()

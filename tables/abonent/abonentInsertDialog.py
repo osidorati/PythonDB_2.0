@@ -1,4 +1,3 @@
-from datetime import datetime
 
 from PyQt5.QtGui import QIntValidator, QRegExpValidator
 from PyQt5.QtSql import QSqlTableModel, QSqlDatabase, QSqlQuery

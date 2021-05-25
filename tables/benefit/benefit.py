@@ -1,3 +1,4 @@
+import xlwt
 from PyQt5.QtGui import QFont
 from PyQt5.QtSql import QSqlTableModel, QSqlDatabase, QSqlQuery, QSqlQueryModel
 from PyQt5.QtWidgets import *
@@ -36,6 +37,7 @@ class BenefitWidget(QWidget):
         self.insert_btn = QPushButton("Добавить")
         self.delete_btn = QPushButton("Удалить")
         self.change_btn = QPushButton("Изменить")
+        self.save = QPushButton("Сохранить")
         self.insert_btn.setFixedWidth(100)
         self.delete_btn.setFixedWidth(100)
         self.change_btn.setFixedWidth(100)
@@ -53,6 +55,7 @@ class BenefitWidget(QWidget):
         self.gridlayout.addWidget(self.insert_btn, 0, 0)
         self.gridlayout.addWidget(self.delete_btn, 0, 1)
         self.gridlayout.addWidget(self.change_btn, 0, 2)
+        self.gridlayout.addWidget(self.save, 0, 3)
 
         self.layout.setGeometry(QRect(441, 212, 173, 154))
         self.layout.addLayout(self.gridlayout)
@@ -64,6 +67,33 @@ class BenefitWidget(QWidget):
         self.insert_btn.clicked.connect(self.openAddDialog)
         self.delete_btn.clicked.connect(self.deleteGroup)
         self.change_btn.clicked.connect(self.edit)
+        self.save.clicked.connect(self.save_excel)
+
+    def save_excel(self):
+        filename, _ = QFileDialog.getSaveFileName(self, 'Save File', '', ".xls(*.xls)")
+        wbk = xlwt.Workbook()
+        sheet = wbk.add_sheet("sheet", cell_overwrite_ok=True)
+        style = xlwt.XFStyle()
+        font = xlwt.Font()
+        font.bold = True
+        style.font = font
+        model = self.view.model()
+        for c in range(model.columnCount()):
+            text = model.headerData(c, Qt.Horizontal)
+            sheet.write(0, c + 1, text, style=style)
+
+        for r in range(model.rowCount()):
+            text = model.headerData(r, Qt.Vertical)
+            sheet.write(r + 1, 0, text, style=style)
+
+        for c in range(model.columnCount()):
+            for r in range(model.rowCount()):
+                text = model.data(model.index(r, c))
+                sheet.write(r + 1, c + 1, text)
+        wbk.save(filename)
+        messageBox = QMessageBox.information(self, self.tr("Success!"),
+                                                 self.tr("Таблица экспортирована! "),
+                                                 QMessageBox.Ok)
 
     def edit(self):
         row = self.view.currentIndex()

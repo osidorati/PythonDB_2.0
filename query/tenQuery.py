@@ -53,7 +53,7 @@ class TenWidget(QWidget):
         self.view.resizeColumnsToContents()
         self.view.setFixedWidth(1400)
 
-        self.label1 = QLabel("Общая стоимость разговоров (с учетом и без учета льготы), общая и средняя продолжительность разговоров указанного абонента :")
+        self.label1 = QLabel("Общая стоимость разговоров (с учетом и без учета льготы):")
         font = QFont()
         font.setPointSize(12)
         self.label1.setFont(font)

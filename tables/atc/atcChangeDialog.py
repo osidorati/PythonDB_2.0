@@ -1,6 +1,5 @@
 from datetime import datetime
 
-from PyQt5.QtGui import QFont
 from PyQt5.QtSql import QSqlTableModel, QSqlDatabase, QSqlQuery, QSqlQueryModel
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *

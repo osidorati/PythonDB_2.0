@@ -1,3 +1,4 @@
+import xlwt as xlwt
 from PyQt5.QtGui import QFont
 from PyQt5.QtSql import QSqlQuery, QSqlQueryModel
 from PyQt5.QtWidgets import *
@@ -21,7 +22,6 @@ class CallsWidget(QWidget):
         self.widget.setGeometry(QRect(441, 212, 173, 154))
         self.layout = QVBoxLayout()
         self.gridlayout = QGridLayout()
-
 
         self.model = QSqlQueryModel(self)
         self.model.setQuery("""select calls.id, abonents.surname, abonents.name, abonents.middlename, abonents.phone_number, 
@@ -52,6 +52,7 @@ class CallsWidget(QWidget):
         self.delete_btn = QPushButton("Удалить")
         self.looked_btn = QPushButton("Просмотр")
         self.change_btn = QPushButton("Изменить")
+        # self.save = QPushButton("Сохранить")
         self.search = QLineEdit()
         self.search.setFixedWidth(310)
         self.ok_btn = QPushButton("Ok")
@@ -83,6 +84,7 @@ class CallsWidget(QWidget):
         self.gridlayout.addWidget(self.delete_btn, 0, 3)
         self.gridlayout.addWidget(self.looked_btn, 0, 1)
         self.gridlayout.addWidget(self.change_btn, 0, 2)
+        # self.gridlayout.addWidget(self.save, 0, 4)
 
         self.layout.setGeometry(QRect(441, 212, 173, 154))
         self.layout.addLayout(self.gridlayout)
@@ -97,6 +99,17 @@ class CallsWidget(QWidget):
         self.ok_btn.clicked.connect(self.research)
         self.all.stateChanged.connect(self.selectAll)
         self.change_btn.clicked.connect(self.edit)
+
+
+    def save_excel(self):
+        filename = QFileDialog.getSaveFileName(self, 'Save File', '', ".xls(*.xls)")
+        wbk = xlwt.Workbook()
+        sheet = wbk.add_sheet("sheet", cell_overwrite_ok=True)
+        for currentColumn in range(self.model.columnCount()):
+            for currentRow in range(self.model.rowCount()):
+                teext = str((self.view.model().data(self.view.model().index(currentRow, currentColumn))))
+                sheet.write(currentRow, currentColumn, teext)
+        wbk.save(filename[0])
 
     def edit(self):
         row = self.view.currentIndex()

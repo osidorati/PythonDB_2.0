@@ -1,8 +1,7 @@
 from PyQt5.QtGui import QFont
-from PyQt5.QtSql import QSqlTableModel, QSqlDatabase, QSqlQuery
+from PyQt5.QtSql import QSqlTableModel, QSqlQuery
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
-from PySide2.QtSql import QSqlRecord
 
 from tables.district.DistrictInsertDialog import RefactorDialog
 

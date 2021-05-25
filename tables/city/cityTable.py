@@ -2,7 +2,6 @@ from PyQt5.QtGui import QFont
 from PyQt5.QtSql import QSqlTableModel, QSqlDatabase, QSqlQuery, QSqlQueryModel
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
-from PySide2.QtSql import QSqlRecord
 
 from tables.city.cityChangeTable import ChangeDialog
 from tables.city.cityInsertTable import RefactorDialog

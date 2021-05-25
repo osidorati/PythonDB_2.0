@@ -118,7 +118,7 @@ class Generation():
         surname_list_m = self.open_file(self.file_name7)
         middlename_list_m = self.open_file(self.file_name6)
 
-        for i in range(200):
+        for i in range(1000):
             sex = random.randint(0, 1)
             if sex == 1:
                 name = random.choice(name_list_f)
@@ -172,7 +172,7 @@ class Generation():
 
 
     def generation_calls(self):
-        for i in range(1000):
+        for i in range(8000):
             self.query.exec("""SELECT id FROM abonents ORDER BY RANDOM() LIMIT 1""")
             while self.query.next():
                 abonent = self.query.value(0)
