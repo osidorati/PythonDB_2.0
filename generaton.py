@@ -5,20 +5,20 @@ class Generation():
     def __init__(self):
         self.query = QSqlQuery()
         self.query.exec("""TRUNCATE tariff, position, benefit, district, calls, abonents, city, country, atc RESTART IDENTITY;""")
-        self.file_name1 = 'D:/PythonDB_2.0/helpers/caption.txt'
-        self.file_name2 = 'D:/PythonDB_2.0/helpers/street.txt'
-        self.file_name3 = 'D:/PythonDB_2.0/helpers/femaleSurname.txt'
-        self.file_name4 = 'D:/PythonDB_2.0/helpers/femaleName.txt'
-        self.file_name5 = 'D:/PythonDB_2.0/helpers/femaleMiddlename.txt'
-        self.file_name6 = 'D:/PythonDB_2.0/helpers/maleMiddlename.txt'
-        self.file_name7 = 'D:/PythonDB_2.0/helpers/maleSurname.txt'
-        self.file_name8 = 'D:/PythonDB_2.0/helpers/maleName.txt'
-        self.file_name9 = 'D:/PythonDB_2.0/helpers/city.txt'
-        self.file_name10 = 'D:/PythonDB_2.0/helpers/country.txt'
-        self.file_name11 = 'D:/PythonDB_2.0/helpers/district.txt'
-        self.file_name12 = 'D:/PythonDB_2.0/helpers/benefit.txt'
-        self.file_name13 = 'D:/PythonDB_2.0/helpers/position.txt'
-        self.file_name14 = 'D:/PythonDB_2.0/helpers/tariff.txt'
+        self.file_name1 = 'helpers/caption.txt'
+        self.file_name2 = 'helpers/street.txt'
+        self.file_name3 = 'helpers/femaleSurname.txt'
+        self.file_name4 = 'helpers/femaleName.txt'
+        self.file_name5 = 'helpers/femaleMiddlename.txt'
+        self.file_name6 = 'helpers/maleMiddlename.txt'
+        self.file_name7 = 'helpers/maleSurname.txt'
+        self.file_name8 = 'helpers/maleName.txt'
+        self.file_name9 = 'helpers/city.txt'
+        self.file_name10 = 'helpers/country.txt'
+        self.file_name11 = 'helpers/district.txt'
+        self.file_name12 = 'helpers/benefit.txt'
+        self.file_name13 = 'helpers/position.txt'
+        self.file_name14 = 'helpers/tariff.txt'
 
     def open_file(self, file_name):
         with open(file_name, "r", encoding='utf-8') as file:
@@ -28,7 +28,6 @@ class Generation():
             s = lines[i].rstrip()
             list.append(s)
         return list
-
 
     def generation_Atc(self):
         position = self.open_file(self.file_name13)

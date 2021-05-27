@@ -58,34 +58,10 @@ class ShopWindow(QMainWindow):
         self.position = QAction("Cоциальное положение", self)
         self.country = QAction("Страны", self)
         self.tariff = QAction("Тарифы", self)
-        # self.first = QAction("Запрос 1", self)
-        # self.second = QAction("Запрос 2", self)
-        # self.third = QAction("Запрос 3", self)
-        # self.four = QAction("Запрос 4", self)
-        # self.fife = QAction("Запрос 5", self)
-        # self.six = QAction("Запрос 6", self)
-        # self.seven = QAction("Запрос 7", self)
-        # self.eight = QAction("Запрос 8", self)
-        # self.nine = QAction("Запрос 9", self)
-        # self.ten = QAction("Запрос 10", self)
-        # self.eleven = QAction("Запрос 11", self)
-        # self.twelve = QAction("Запрос 12", self)
-        # self.thirteen = QAction("Запрос 13", self)
-        # self.fourteen = QAction("Запрос 14", self)
-        # self.fifteen = QAction("Запрос 15", self)
-        # self.sixteen = QAction("Запрос 16", self)
-        # self.seventeen = QAction("Запрос 17", self)
-        # self.eighteen = QAction("Запрос 18", self)
-        # self.nineteen = QAction("Запрос 19", self)
-        # self.plot1 = QAction("Диаграмма 1", self)
-        # self.plot2 = QAction("Диаграмма 2", self)
-        # self.plot3 = QAction("Диаграмма 3", self)
 
         #create the menubar
         self.menu_bar = QMenuBar()
         self.menubar = self.menuBar()
-        # self.filemenu = menubar.addMenu('Запросы')
-        # self.plots = menubar.addMenu('Диаграммы')
 
         self.first = QAction('Вывод АТС открытых за период', self)
         self.second = QAction('Вывод АТС в указанном районе', self)
@@ -111,16 +87,8 @@ class ShopWindow(QMainWindow):
         self.plot2 = QAction('Количество АТС в районах (гистограмма)')
         self.plot3 = QAction('Количество звонков каждой социальной группы по районам')
 
-#        self.filemenu.addAction(self.newAct)
-
-
-
         self.database_menu = self.menu_bar.addMenu("Database")
         self.optional_menu = self.menu_bar.addMenu("Optional")
-        # self.query_menu = self.menu_bar.addMenu("Query 1")
-        # self.query2_menu = self.menu_bar.addMenu("Query 2")
-        # self.query3_menu = self.menu_bar.addMenu('Query 3')
-        # self.plot_menu = self.menu_bar.addMenu('Plots')
 
         #add the actions to the menubar
         self.database_menu.addAction(self.atc)
@@ -133,57 +101,19 @@ class ShopWindow(QMainWindow):
         self.optional_menu.addAction(self.country)
         self.optional_menu.addAction(self.tariff)
 
-        # self.query_menu.addAction(self.first)
-        # self.query_menu.addAction(self.second)
-        # self.query_menu.addAction(self.third)
-        # self.query_menu.addAction(self.four)
-        # self.query_menu.addAction(self.fife)
-        # self.query_menu.addAction(self.six)
-        # self.query_menu.addAction(self.seven)
-        # self.query_menu.addAction(self.eight)
-        #
-        # self.query2_menu.addAction(self.nine)
-        # self.query2_menu.addAction(self.ten)
-        # self.query2_menu.addAction(self.eleven)
-        # self.query2_menu.addAction(self.twelve)
-        # self.query2_menu.addAction(self.thirteen)
-        # self.query2_menu.addAction(self.fourteen)
-        # self.query2_menu.addAction(self.fifteen)
-        # self.query2_menu.addAction(self.sixteen)
-        #
-        # self.query3_menu.addAction(self.seventeen)
-        # self.query3_menu.addAction(self.eighteen)
-        # self.query3_menu.addAction(self.nineteen)
-
-        # self.plot_menu.addAction(self.plot1)
-        # self.plot_menu.addAction(self.plot2)
-        # self.plot_menu.addAction(self.plot3)
-
         #create toolbars
         font = QFont()
         font.setPointSize(14)
         self.database_toolbar = QToolBar("Manage Databases")
         self.optional_toolbar = QToolBar("Manage Optional")
-        # self.query_toolbar = QToolBar("Manage Request")
-        # self.query2_toolbar = QToolBar("Manage Request 2")
-        # self.query3_toolbar = QToolBar("Manage Request 2")
-        # self.plot_toolbar = QToolBar('Plots')
+
         self.database_toolbar.setFont(font)
         self.optional_toolbar.setFont(font)
-        # self.query_toolbar.setFont(font)
-        # self.query2_toolbar.setFont(font)
-        # self.query3_toolbar.setFont(font)
-        # self.plot_toolbar.setFont(font)
-
         self.menubar.setFont(font)
 
         #add toolbars to window
         self.addToolBar(self.database_toolbar)
         self.addToolBar(self.optional_toolbar)
-        # self.addToolBar(self.query_toolbar)
-        # self.addToolBar(self.query2_toolbar)
-        # self.addToolBar(self.query3_toolbar)
-        # self.addToolBar(self.plot_toolbar)
 
         self.open_register()
 
@@ -251,11 +181,8 @@ class ShopWindow(QMainWindow):
         self.plots.addAction(self.plot2)
         self.plots.addAction(self.plot3)
 
-        # self.filemenu.addMenu(impMenu)
         self.menu_bar.addMenu(self.filemenu)
         self.menu_bar.addMenu(self.plots)
-
-
 
         self.database_toolbar.addAction(self.atc)
         self.database_toolbar.addAction(self.abonents)
@@ -267,31 +194,6 @@ class ShopWindow(QMainWindow):
         self.optional_toolbar.addAction(self.country)
         self.optional_toolbar.addAction(self.tariff)
 
-        # self.query_toolbar.addAction(self.first)
-        # self.query_toolbar.addAction(self.second)
-        # self.query_toolbar.addAction(self.third)
-        # self.query_toolbar.addAction(self.four)
-        # self.query_toolbar.addAction(self.fife)
-        # self.query_toolbar.addAction(self.six)
-        # self.query_toolbar.addAction(self.seven)
-        # self.query_toolbar.addAction(self.eight)
-        # self.query2_toolbar.addAction(self.nine)
-        # self.query2_toolbar.addAction(self.ten)
-        # self.query2_toolbar.addAction(self.eleven)
-        # self.query2_toolbar.addAction(self.twelve)
-        # self.query2_toolbar.addAction(self.thirteen)
-        # self.query2_toolbar.addAction(self.fourteen)
-        # self.query2_toolbar.addAction(self.fifteen)
-        # self.query2_toolbar.addAction(self.sixteen)
-        #
-        # self.query3_toolbar.addAction(self.seventeen)
-        # self.query3_toolbar.addAction(self.eighteen)
-        # self.query3_toolbar.addAction(self.nineteen)
-
-        # self.plot_toolbar.addAction(self.plot1)
-        # self.plot_toolbar.addAction(self.plot2)
-        # self.plot_toolbar.addAction(self.plot3)
-
         self.database_menu.addAction(self.atc)
         self.database_menu.addAction(self.abonents)
         self.database_menu.addAction(self.calls)
@@ -301,31 +203,6 @@ class ShopWindow(QMainWindow):
         self.optional_menu.addAction(self.position)
         self.optional_menu.addAction(self.country)
         self.optional_menu.addAction(self.tariff)
-
-        # self.query_menu.addAction(self.first)
-        # self.query_menu.addAction(self.second)
-        # self.query_menu.addAction(self.third)
-        # self.query_menu.addAction(self.four)
-        # self.query_menu.addAction(self.fife)
-        # self.query_menu.addAction(self.six)
-        # self.query_menu.addAction(self.seven)
-        # self.query_menu.addAction(self.eight)
-        # self.query2_menu.addAction(self.nine)
-        # self.query2_menu.addAction(self.ten)
-        # self.query2_menu.addAction(self.eleven)
-        # self.query2_menu.addAction(self.twelve)
-        # self.query2_menu.addAction(self.thirteen)
-        # self.query2_menu.addAction(self.fourteen)
-        # self.query2_menu.addAction(self.fifteen)
-        # self.query2_menu.addAction(self.sixteen)
-        #
-        # self.query3_menu.addAction(self.seventeen)
-        # self.query3_menu.addAction(self.eighteen)
-        # self.query3_menu.addAction(self.nineteen)
-
-        # self.plot_menu.addAction(self.plot1)
-        # self.plot_menu.addAction(self.plot2)
-        # self.plot_menu.addAction(self.plot3)
 
         self.districts.triggered.connect(self.open_districts)
         self.atc.triggered.connect(self.open_atc_table)

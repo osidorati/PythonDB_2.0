@@ -65,14 +65,6 @@ class RegisterWidget(QWidget):
         self.setLayout(self.layout)
 
         self.layout.setAlignment(Qt.AlignVCenter | Qt.AlignHCenter)
-
-       # self.layout.addWidget(self.title_label)
-       #  self.layout.addLayout(self.details_layout)
-       #  self.setLayout(self.layout)
-
-        #connections
-        # self.clear_button.clicked.connect(self.clear_details)
-        # self.save_button.clicked.connect(self.save_details)
         self.enter.clicked.connect(self.read)
 
     def read(self):
