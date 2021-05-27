@@ -112,8 +112,8 @@ class Plot3Widget(QWidget):
         #
         # ax.bar3d(district, type, count, 9, 3, 20)
 
-        fig, ax1 = plt.subplots()
-        # fig = plt.figure()
+        #fig, ax1 = plt.subplots()
+        fig = plt.figure()
 
         index = np.arange(len(district))
         # values1 = [5, 7, 3, 4, 6, 1, 1, 1, 1]
@@ -179,9 +179,9 @@ class Plot3Widget(QWidget):
 
         print(z_size)
 
+        color = ['aqua', 'red', 'yellow', 'aqua', 'red', 'yellow', 'aqua', 'red', 'yellow', 'aqua', 'red', 'yellow', 'aqua', 'red', 'yellow', 'aqua', 'red', 'yellow', 'aqua', 'red', 'yellow', 'aqua', 'red', 'yellow', 'aqua', 'red', 'yellow']
 
-
-        ax.bar3d(x_list, y_list, z_pos, x_size, y_size, z_size, color='aqua')
+        ax.bar3d(x_list, y_list, z_pos, x_size, y_size, z_size, color=color)
 
         ax.set_xticklabels(district)
         ax.set_yticklabels(position)
@@ -190,16 +190,17 @@ class Plot3Widget(QWidget):
         #  Устанавливаем интервал вспомогательных делений:
         ax.yaxis.set_major_locator(ticker.MultipleLocator(1))
 
-
+        plt.legend()
 
         ax.set_xlim(0, 11)
         # ax.set_ylim(0, 10)
         # ax.set_zlim(0, 10)
 
 
-        labels = ax1.set_xticklabels(district, fontsize=7, verticalalignment='center')
-
-        fig.set_figwidth(15)
+        # labels = ax1.set_xticklabels(district, fontsize=7, verticalalignment='center')
+        #
+        fig.set_figwidth(25)
+        fig.set_figheight(25)
 
         self.plotWidget = FigureCanvas(fig)
         self.model = QSqlQueryModel(self)
@@ -214,19 +215,13 @@ class Plot3Widget(QWidget):
         # self.model.setHeaderData(2, Qt.Horizontal, "Условия льготы")
         # self.model.setHeaderData(3, Qt.Horizontal, "Тариф по льготе")
 
-        self.view = QTableView()
-        self.view.setModel(self.model)
-        self.view.resizeColumnsToContents()
-
-
-
         lay = QVBoxLayout(self.centralwidget)
         lay.setContentsMargins(0, 0, 0, 0)
         lay.addWidget(self.plotWidget)
 
         self.gridlayout.addWidget(self.label1, 0, 0, 1, 8)
         self.gridlayout.addWidget(self.plotWidget, 2, 2)
-        self.gridlayout.addWidget(self.view, 2, 3)
+
 
         self.layout.setGeometry(QRect(441, 212, 173, 154))
         self.layout.addLayout(self.gridlayout)
